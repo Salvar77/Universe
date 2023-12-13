@@ -1,0 +1,787 @@
+@use "./elements/" as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Bruno Ace SC", sans-serif;
+	font-size: 1.6rem;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// margin: 0 auto;
+	// max-width: 1400px;
+}
+
+.section-heading {
+	text-align: center;
+	color: $white-smooth;
+	padding: 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+button {
+	// position: relative;
+	margin: 20px;
+	padding: 1rem 0.6rem;
+	background: none;
+	border: 1px solid $white-smooth;
+	border-radius: 2rem;
+	color: $white-smooth;
+	font-size: 2rem;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&::before,
+	&::after {
+		display: block;
+		position: absolute;
+		content: "";
+		transition: all 0.5s;
+		// z-index: -1;
+	}
+}
+
+.a {
+	position: relative;
+	margin: 20px;
+	padding: 1rem 0.6rem;
+	background: none;
+	// border: 1px solid $white-smooth;
+	// border-radius: 2rem;
+	color: $white-smooth;
+	font-size: 2rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+
+	&::before,
+	&::after {
+		display: block;
+		position: absolute;
+		content: "";
+		transition: all 0.5s;
+		z-index: 1;
+	}
+}
+
+/// NAV ///
+
+.hamburger {
+	position: fixed;
+	top: 2rem;
+	right: 1rem;
+	color: $secondary-color;
+	// transform: translateY(-50%);
+	z-index: 500;
+
+	&-inner,
+	&-inner::before,
+	&-inner::after {
+		background-color: $secondary-color;
+		z-index: 500;
+	}
+}
+
+.navbar {
+	// color: $white-smooth;
+	&__logo {
+		position: fixed;
+		top: 2rem;
+		left: 1rem;
+		display: flex;
+		align-items: center;
+		margin: 1rem;
+		z-index: 1000;
+	}
+
+	&__img {
+		height: 3rem;
+	}
+}
+
+.nav__element-to-hide {
+	transition: opacity 0.3s ease-in-out;
+	will-change: opacity;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	transform: translateX(100%);
+	transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+	background-image: $secondary-color;
+	background-color: $white-smooth;
+	z-index: 1000;
+
+	&--active {
+		transform: translateX(0);
+	}
+
+	&__img {
+		top: 0;
+		height: 6rem;
+		padding: 0.8rem 1.6rem;
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__logo-text {
+		margin-left: 1rem;
+		font-size: 2rem;
+		color: $white-smooth;
+	}
+
+	&__item {
+		position: relative;
+		padding: 1rem;
+		margin: 1rem 0;
+		font-size: 2rem;
+		text-decoration: none;
+
+		&:hover {
+			color: $secondary-color;
+		}
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			transition: width 0.3s;
+		}
+
+		&::before {
+			top: -2px;
+			left: -8px;
+			border-top: 0 solid $dark-smooth;
+			border-left: 0 solid $dark-smooth;
+		}
+
+		&::after {
+			bottom: -2px;
+			right: -8px;
+			border-bottom: 0 solid $dark-smooth;
+			border-right: 0 solid $dark-smooth;
+		}
+
+		&:hover::before,
+		&:hover::after {
+			width: 45px;
+			height: 50%;
+		}
+
+		&:hover::before {
+			border-top: 2px solid $secondary-color;
+			border-left: 2px solid $secondary-color;
+		}
+
+		&:hover::after {
+			border-bottom: 2px solid $secondary-color;
+			border-right: 2px solid $secondary-color;
+		}
+	}
+}
+
+// HEADER //
+.header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	height: 100vh;
+	@include heroImages("../../dist/img/universe-hero-640.webp");
+
+	&__heading {
+		font-size: 2rem;
+		color: $white-smooth;
+		padding: 1rem;
+		text-align: center;
+		// font-weight: 300;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+		padding: 1rem;
+		text-align: center;
+		color: $white-smooth;
+	}
+
+	&__btn {
+		position: relative;
+		margin-top: 2em;
+		padding: 0.8em 1.6em;
+		font-size: 1.4rem;
+		// background: white;
+		border: 2px solid black;
+		border-radius: 8px;
+		color: $white-smooth;
+		text-decoration: none;
+		text-transform: uppercase;
+		cursor: pointer;
+		overflow: hidden;
+
+		&::before,
+		&::after {
+			display: block;
+			position: absolute;
+			content: "";
+			transition: 0.6s;
+		}
+
+		&::before {
+			top: -30px;
+			left: -130px;
+			height: 240%;
+			width: 100px;
+			background-image: linear-gradient(
+				-90deg,
+				rgba(231, 223, 216, 0.3),
+				rgba(255, 255, 255, 0)
+			);
+			transform: rotate(20deg);
+		}
+
+		&:hover::before {
+			left: 130%;
+		}
+	}
+}
+
+/// O KOSMOSIE
+
+.universe {
+		&__box {
+			background-color: $dark-smooth;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+	&__box-text {
+		// text-align: center;
+		background-color: $dark-smooth;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__info {
+		font-family: "Alkatra";
+		font-size: 2rem;
+		color: $white-smooth;
+		padding: 2rem;
+		margin: 0 auto;
+	}
+	&__img {
+		max-width: 100%;
+		// height: auto;
+	}
+
+	&__btn {
+		font-family: "Alkatra";
+		display: inline-block;
+		width: auto;
+		// text-align: center;
+		margin: 0 auto;
+		padding: 1.6rem 3.2rem;
+		font-size: 1.6rem;
+		transition: background-color 0.3s;
+		border-radius: 0.6rem;
+		// opacity: 0.6;
+		color: $white-smooth;
+		background-color: $dark-smooth;
+		box-shadow: 0.4rem 0.6rem 0.8rem;
+		// border: none;
+		transition: 0.5s;
+		text-decoration: none;
+
+		&:hover {
+			box-shadow: 0.6rem 0.8rem 0 0 rgba(175, 23, 23, 0.8),
+				inset 0.8rem 0.4rem 0.8rem rgba(239, 112, 112, 0.711);
+		}
+	}
+}
+
+.hmm {
+	border: none;
+	transition: 0.5s;
+
+	&:hover {
+		box-shadow: 2rem 3rem 0 0 rgba(255, 255, 255, 0.8),
+			inset 1.1rem 0.6rem 1rem rgba(0, 0, 0, 0.2);
+	}
+}
+
+////O CZARNYCH DZIURACH!
+
+.blackholes {
+	background: $dark-smooth;
+	&__box {
+		position: relative;
+		margin: 2rem;
+		padding: 2rem;
+		border-radius: 1rem;
+		box-shadow: 0.6rem 0.6rem 0.8rem $dark-smooth;
+	}
+
+	&__box-img {
+		overflow: hidden;
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	&__info {
+		color: $white-smooth;
+		margin: 0 auto;
+		padding: 2rem;
+		max-width: 1200px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0.4rem;
+		// text-align: justify;
+		line-height: 1.5;
+	}
+
+	&__button {
+		position: relative;
+		margin: 2rem;
+		padding: 1.6rem 3.2rem;
+		border-radius: 0.6rem;
+		border: none;
+		font-size: 1.6rem;
+		text-transform: uppercase;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		transition: 0.8s;
+		font-family: "Bruno Ace SC";
+		text-decoration: none;
+
+		&::before,
+		&::after {
+			display: block;
+			position: absolute;
+			content: "";
+			transition: all 0.5s;
+			z-index: -1;
+		}
+
+		&::before {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
+
+		&::after {
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
+
+		&:hover {
+			border: 1px solid transparent;
+			color: $secondary-color;
+		}
+
+		&:hover::after {
+			bottom: -10px;
+			right: -10px;
+			border-bottom: 5px solid $main-color;
+			border-right: 5px solid $main-color;
+		}
+
+		&:hover::before {
+			top: -10px;
+			left: -10px;
+			border-top: 5px solid $main-color;
+			border-left: 5px solid $main-color;
+		}
+	}
+}
+
+/// GALLERY SLIDER
+
+.gallery {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: $dark-smooth;
+
+	&-images {
+		display: flex;
+		width: 600%; // 100% * (4 obrazy + 2 klony)
+		overflow: hidden;
+		height: auto;
+		left: 0;
+		// transform: scale(1.1);
+	}
+
+	&-button {
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		font-size: 1.6rem;
+		cursor: pointer;
+		z-index: 2;
+
+		&:hover {
+			color: $secondary-color;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&-text {
+			text-align: center;
+			color: $white-smooth;
+			margin-top: 1rem;
+		}
+	}
+
+	.prev {
+		left: 0;
+	}
+
+	.next {
+		right: 0;
+	}
+
+	&-images img {
+		width: calc(100% / 6); // 100% / (4 obrazy + 2 klony)
+		object-fit: cover;
+	}
+
+	&__btn {
+		position: relative;
+		font-family: "Bruno Ace SC";
+		cursor: pointer;
+		overflow: hidden;
+		margin: 1rem;
+		padding: 1.6rem 3.2rem;
+		border-radius: 0.6rem;
+		font-size: 1.6rem;
+		border: none;
+		transition: background-color 0.3s;
+		z-index: 0;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: $main-color;
+			z-index: -1;
+			// background-color: red;
+			// border: 2px solid blue;
+		}
+
+		&::before {
+			top: -50%;
+			left: -100%;
+		}
+		&::after {
+			bottom: -50%;
+			right: -100%;
+		}
+
+		&:hover::before {
+			left: 0;
+		}
+
+		&:hover::after {
+			right: 0;
+		}
+	}
+}
+
+.gallery-container {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.footer {
+	background-color: $dark-smooth;
+	&__container {
+		text-align: center;
+	}
+
+	&__text {
+		&-info {
+			color: $white-smooth;
+		}
+	}
+	&__icons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		padding: 1rem;
+	}
+}
+
+/// MEDIAAAAAAAAAA
+
+@media (min-width: 576px) {
+	.header {
+		&__heading {
+			font-size: 2.6rem;
+		}
+
+		&__text {
+			font-size: 1.6rem;
+		}
+
+		&__btn {
+			font-size: 1.4rem;
+		}
+	}
+
+	.universe {
+		&__img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+	}
+
+	.blackholes {
+		&__button {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.header {
+		&__heading {
+			font-size: 3rem;
+		}
+
+		&__text {
+			font-size: 3.2rem;
+		}
+
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+
+	.universe {
+		&__img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+
+		&__btn {
+			font-size: 2rem;
+		}
+	}
+
+	.blackholes {
+		&__button {
+			font-size: 2rem;
+		}
+	}
+
+	.gallery {
+		&__btn {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		height: 7.6rem;
+		align-items: center;
+		justify-content: center;
+		transform: none;
+		left: 0;
+		top: 0;
+		background-color: $dark-smooth;
+		// background-image: none;
+		// background-color: $white-smooth;
+		// margin-left: calc(5rem + 1rem + 2rem + 10rem); // logo width + logo-text margin-left + nav__logo left // Increase the last value to add more space
+		margin-top: 0;
+		opacity: 0.4;
+
+		&::before,
+		&::after {
+			transition: 0.3s;
+		}
+
+		&__items {
+			flex-direction: row;
+		}
+
+		&__item {
+			margin: 0 1rem;
+			margin-top: 0.8rem;
+			font-size: 1.8rem;
+			color: $white-smooth;
+
+			&:hover::before,
+			&:hover::after {
+				display: none;
+			}
+		}
+
+		&__logo-text {
+			margin-bottom: 1rem;
+			color: $white-smooth;
+		}
+
+		&__img {
+			display: none;
+		}
+	}
+
+	.hamburger {
+		display: none;
+	}
+
+	.header {
+		@include heroImages("../../dist/img/universe-hero-1920.webp");
+		&__heading {
+			font-size: 3.6rem;
+		}
+
+		&__text {
+			font-size: 2.6rem;
+		}
+
+		&__btn {
+			font-size: 1.8rem;
+		}
+	}
+
+	.navbar__logo {
+		transform: scale(0.8);
+		top: 0;
+		left: 0;
+	}
+
+	.universe {
+		&__img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			content: url("../../dist/img/about-universe-1920.webp");
+		}
+	}
+
+	.blackholes {
+		&__btn {
+			font-size: 2.2rem;
+		}
+	}
+
+	// .gallery-images {
+	// 	img {
+	// 		background-image: url("../../dist/img/gallery-main-1-1920.webp");
+	// 		background-image: url("../../dist/img/gallery-main-2-1920.webp");
+	// 		background-image: url("../../dist/img/gallery-main-3-1920.webp");
+	// 		background-image: url("../../dist/img/gallery-main-4-1920.webp");
+	// 	}
+	// }
+}
+
+// &:hover {
+// 	color: $secondary-color;
+// }
+
+// &::before {
+// 	position: absolute;
+// 	top: 0;
+// 	right: 0;
+// 	width: 5px;
+// 	height: 100%;
+// 	transform: scaleY(0);
+// 	background-color: $dark-smooth;
+// 	transition: transform 0.4s;
+// 	content: "";
+// }
+
+// &::after {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 4px;
+// 	height: 100%;
+// 	transform: scaleY(0);
+// 	background-color: $dark-smooth;
+// 	transition: transform 0.8s;
+// 	content: "";
+// }
+
+// &:hover::before {
+// 	transform: scaleY(1);
+// }
+// &:hover::after {
+// 	transform: scaleY(1);
+// }

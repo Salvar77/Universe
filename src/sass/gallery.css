@@ -1,0 +1,417 @@
+@charset "UTF-8";
+@media (min-width: 576px) {
+  .header__heading {
+    font-size: 2.6rem;
+  }
+  .header__text {
+    font-size: 1.6rem;
+  }
+  .header__btn {
+    font-size: 1.4rem;
+  }
+  .universe__img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .blackholes__button {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 768px) {
+  .header__heading {
+    font-size: 3rem;
+  }
+  .header__text {
+    font-size: 3.2rem;
+  }
+  .header__btn {
+    font-size: 1.6rem;
+  }
+  .universe__img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .universe__btn {
+    font-size: 2rem;
+  }
+  .blackholes__button {
+    font-size: 2rem;
+  }
+  .gallery__btn {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .nav {
+    height: 7.6rem;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    left: 0;
+    top: 0;
+    background-color: #060606;
+    margin-top: 0;
+    opacity: 0.4;
+  }
+  .nav::before, .nav::after {
+    transition: 0.3s;
+  }
+  .nav__items {
+    flex-direction: row;
+  }
+  .nav__item {
+    margin: 0 1rem;
+    margin-top: 0.8rem;
+    font-size: 1.8rem;
+    color: #fcfbfb;
+  }
+  .nav__item:hover::before, .nav__item:hover::after {
+    display: none;
+  }
+  .nav__logo-text {
+    margin-bottom: 1rem;
+    color: #fcfbfb;
+  }
+  .nav__img {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+  }
+  .header {
+    background-image: linear-gradient(45deg, rgba(216, 96, 26, 0.65), rgba(75, 180, 241, 0.65)), url("../../dist/img/universe-hero-1920.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .header__heading {
+    font-size: 3.6rem;
+  }
+  .header__text {
+    font-size: 2.6rem;
+  }
+  .header__btn {
+    font-size: 1.8rem;
+  }
+  .navbar__logo {
+    transform: scale(0.8);
+    top: 0;
+    left: 0;
+  }
+  .universe__img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+    content: url("../../dist/img/about-universe-1920.webp");
+  }
+  .blackholes__btn {
+    font-size: 2.2rem;
+  }
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-size: 1.6rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  color: #e51313;
+  z-index: 500;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  background-color: #e51313;
+  z-index: 500;
+}
+
+.navbar__logo {
+  position: fixed;
+  top: 2rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  z-index: 1000;
+}
+.navbar__img {
+  height: 3rem;
+}
+
+.nav__element-to-hide {
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(100%);
+  transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  background-image: #e51313;
+  background-color: #fcfbfb;
+  z-index: 100;
+}
+.nav--active {
+  transform: translateX(0);
+}
+.nav__img {
+  top: 0;
+  height: 6rem;
+  padding: 0.8rem 1.6rem;
+}
+.nav__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav__logo-text {
+  margin-left: 0.2rem;
+  font-size: 1.2rem;
+  color: #fcfbfb;
+}
+.nav__item {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.nav__item:hover {
+  color: #e51313;
+}
+.nav__item::after, .nav__item::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: width 0.3s;
+}
+.nav__item::before {
+  top: -2px;
+  left: -8px;
+  border-top: 0 solid #060606;
+  border-left: 0 solid #060606;
+}
+.nav__item::after {
+  bottom: -2px;
+  right: -8px;
+  border-bottom: 0 solid #060606;
+  border-right: 0 solid #060606;
+}
+.nav__item:hover::before, .nav__item:hover::after {
+  width: 45px;
+  height: 50%;
+}
+.nav__item:hover::before {
+  border-top: 2px solid #e51313;
+  border-left: 2px solid #e51313;
+}
+.nav__item:hover::after {
+  border-bottom: 2px solid #e51313;
+  border-right: 2px solid #e51313;
+}
+
+.footer {
+  background-color: #060606;
+}
+.footer__container {
+  text-align: center;
+}
+.footer__text-info {
+  color: #fcfbfb;
+}
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.footer__icons li {
+  list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+.gallery-main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #060606;
+}
+
+.content {
+  width: 70vw;
+  margin: 3rem auto;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3);
+}
+
+.col {
+  padding: 3rem;
+  background: #060606;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  position: relative; /* Dodajmy pozycję względną dla prawidłowego pozycjonowania obrazu */
+  /* Trik z paddingiem */
+}
+.col::before {
+  content: "";
+  display: block;
+  padding-top: 75%; /* Ustawiamy stosunek 4:3, możesz dostosować */
+}
+.col img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute; /* Obraz będzie pozycjonowany względem diva */
+  top: 0; /* Pozycja na samej górze diva */
+  left: 0; /* Pozycja na lewym brzegu diva */
+}
+.col img:hover {
+  transform: scale(1.1);
+}
+
+.col img {
+  width: 100%; /* Obraz będzie zawsze na całą szerokość diva */
+  -o-object-fit: cover;
+     object-fit: cover; /* Obraz będzie skalowany, zachowując proporcje, aby wypełnić diva */
+  transition: transform 0.3s;
+  border-radius: 0.6rem;
+}
+
+.title {
+  font-weight: 900;
+  color: #fcfbfb;
+  background-color: #060606;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.grid-ish {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.grid-ish > * {
+  flex: 1 1 20rem;
+}
+
+.content-sidebar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.content-sidebar > *:nth-child(1) {
+  flex: 1 1 70%;
+  min-width: 30ch;
+}
+
+.content-sidebar > *:nth-child(2) {
+  flex: 1 1 25%;
+  min-width: 15ch;
+}
+
+@media (min-width: 992px) {
+  .nav {
+    height: 3.6rem;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    left: 0;
+    top: 0;
+    background-color: #060606;
+    margin-top: 0;
+    opacity: 0.3;
+    transform: scale(1.6);
+  }
+  .nav::before, .nav::after {
+    transition: 0.3s;
+  }
+  .nav__items {
+    flex-direction: row;
+  }
+  .nav__item {
+    margin: 0 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: #fcfbfb;
+  }
+  .nav__item:hover::before, .nav__item:hover::after {
+    display: none;
+  }
+  .nav__logo-text {
+    margin-bottom: 1rem;
+    color: #fcfbfb;
+  }
+  .nav__img {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+  }
+  .navbar__logo {
+    top: 0;
+    left: 0;
+  }
+}/*# sourceMappingURL=gallery.css.map */

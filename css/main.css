@@ -1,0 +1,293 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-size: 1.6rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.section-heading {
+  text-align: center;
+  color: #fcfbfb;
+  padding: 1rem;
+}
+
+.hamburger {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  color: #e51313;
+  z-index: 500;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  background-color: #e51313;
+  z-index: 500;
+}
+
+.navbar__logo {
+  position: fixed;
+  top: 2rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  z-index: 1000;
+}
+.navbar__img {
+  height: 3rem;
+}
+
+.nav__element-to-hide {
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(100%);
+  transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  background-image: #e51313;
+  background-color: #fcfbfb;
+  z-index: 100;
+}
+.nav--active {
+  transform: translateX(0);
+}
+.nav__img {
+  top: 0;
+  height: 6rem;
+  padding: 0.8rem 1.6rem;
+}
+.nav__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav__logo-text {
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #fcfbfb;
+}
+.nav__item {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.nav__item:hover {
+  color: #ac5208;
+}
+.nav__item::after, .nav__item::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  transition: width 0.3s;
+}
+.nav__item::before {
+  top: -2px;
+  left: -8px;
+  border-top: 0 solid #060606;
+  border-left: 0 solid #060606;
+}
+.nav__item::after {
+  bottom: -2px;
+  right: -8px;
+  border-bottom: 0 solid #060606;
+  border-right: 0 solid #060606;
+}
+.nav__item:hover::before, .nav__item:hover::after {
+  width: 45px;
+  height: 50%;
+}
+.nav__item:hover::before {
+  border-top: 2px solid #e51313;
+  border-left: 2px solid #e51313;
+}
+.nav__item:hover::after {
+  border-bottom: 2px solid #e51313;
+  border-right: 2px solid #e51313;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 100vh;
+  background-image: linear-gradient(45deg, rgba(216, 96, 26, 0.65), rgba(75, 180, 241, 0.65)), url("../../dist/img/universe-hero-640.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.header__heading {
+  font-size: 2rem;
+  color: #fcfbfb;
+  padding: 1rem;
+  text-align: center;
+}
+.header__text {
+  font-size: 1.4rem;
+  padding: 1rem;
+  text-align: center;
+  color: #fcfbfb;
+}
+.header__btn {
+  position: relative;
+  margin-top: 2em;
+  padding: 0.8em 1.6em;
+  font-size: 1.4rem;
+  border: 2px solid black;
+  border-radius: 8px;
+  color: #fcfbfb;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+}
+.header__btn::before, .header__btn::after {
+  display: block;
+  position: absolute;
+  content: "";
+  transition: 0.6s;
+}
+.header__btn::before {
+  top: -30px;
+  left: -130px;
+  height: 240%;
+  width: 100px;
+  background-image: linear-gradient(-90deg, rgba(231, 223, 216, 0.3), rgba(255, 255, 255, 0));
+  transform: rotate(20deg);
+}
+.header__btn:hover::before {
+  left: 130%;
+}
+
+.universe__box {
+  background-color: #060606;
+}
+.universe__info {
+  font-family: "Alkatra";
+  font-size: 2rem;
+  color: #fcfbfb;
+  padding: 1rem 1rem;
+}
+.universe__img {
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  .header__heading {
+    font-size: 2.6rem;
+  }
+  .header__text {
+    font-size: 1.6rem;
+  }
+  .header__btn {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 768px) {
+  .header__heading {
+    font-size: 3rem;
+  }
+  .header__text {
+    font-size: 3.2rem;
+  }
+  .header__btn {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 992px) {
+  .nav {
+    height: 7.6rem;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    left: 0;
+    top: 0;
+    background-color: #060606;
+    margin-top: 0;
+    opacity: 0.4;
+  }
+  .nav::before, .nav::after {
+    transition: 0.3s;
+  }
+  .nav__items {
+    flex-direction: row;
+  }
+  .nav__item {
+    margin: 0 1rem;
+    margin-top: 0.8rem;
+    font-size: 1.8rem;
+    color: #fcfbfb;
+  }
+  .nav__item:hover::before, .nav__item:hover::after {
+    display: none;
+  }
+  .nav__logo-text {
+    margin-bottom: 1rem;
+    color: #fcfbfb;
+  }
+  .hamburger {
+    display: none;
+  }
+  .header {
+    background-image: linear-gradient(45deg, rgba(216, 96, 26, 0.65), rgba(75, 180, 241, 0.65)), url("../../dist/img/universe-hero-1920.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .header__heading {
+    font-size: 3.6rem;
+  }
+  .header__text {
+    font-size: 2.6rem;
+  }
+  .header__btn {
+    font-size: 1.6rem;
+  }
+  .navbar__logo {
+    transform: scale(0.8);
+    top: 0.5rem;
+  }
+}/*# sourceMappingURL=main.css.map */
