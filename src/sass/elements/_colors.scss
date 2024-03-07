@@ -5,10 +5,21 @@ $dark-smooth: #060606;
 $green-color: #75e811;
 $green-color-hover: #0fe29c;
 
-$light-blue-gradient: linear-gradient(45deg, rgba(216, 96, 26, 0.65), rgba(75, 180, 241, 0.65));
-$light-blue-gradient-solid: radial-gradient(circle at top right, rgb(0, 78, 255) 0%, rgb(0, 212, 255) 100%);
-$blue-gradient-solid: linear-gradient(45deg, rgb(20, 105, 241), rgb(42, 10, 184));
-
+$light-blue-gradient: linear-gradient(
+  45deg,
+  rgba(216, 96, 26, 0.65),
+  rgba(75, 180, 241, 0.65)
+);
+$light-blue-gradient-solid: radial-gradient(
+  circle at top right,
+  rgb(0, 78, 255) 0%,
+  rgb(0, 212, 255) 100%
+);
+$blue-gradient-solid: linear-gradient(
+  45deg,
+  rgb(20, 105, 241),
+  rgb(42, 10, 184)
+);
 
 // $white: #fff;
 // $gold: #d6c78e;

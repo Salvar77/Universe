@@ -154,10 +154,12 @@ button {
     transform: translateX(0);
   }
 
+  &__logo-text {
+    font-size: 6rem;
+  }
+
   &__img {
-    top: 0;
-    height: 6rem;
-    padding: 0.8rem 1.6rem;
+    top: 1rem;
   }
 
   &__items {
@@ -165,12 +167,6 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  &__logo-text {
-    margin-left: 1rem;
-    font-size: 2rem;
-    color: $white-smooth;
   }
 
   &__item {
@@ -234,6 +230,7 @@ button {
   align-items: center;
   padding: 2rem;
   height: 100vh;
+  // z-index: 1200;
 
   &__heading {
     font-size: 2rem;
@@ -726,7 +723,6 @@ button {
   }
 
   .header {
-    @include heroImages("../../dist/img/universe-hero-1920.webp");
     &__heading {
       font-size: 3.6rem;
     }
@@ -738,6 +734,27 @@ button {
     &__btn {
       font-size: 1.8rem;
     }
+  }
+
+  .header::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url("../../dist/img/universe-hero-1920.webp"),
+      linear-gradient(
+        to right bottom,
+        rgba(219, 27, 27, 0.8),
+        rgba(0, 0, 0, 0.783)
+      );
+    background-size: cover, cover;
+
+    background-position: center center;
+    background-repeat: no-repeat, no-repeat;
+    z-index: -1;
   }
 
   .navbar__logo {
