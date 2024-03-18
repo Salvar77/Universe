@@ -905,6 +905,7 @@ p {
 }
 
 .flexfun__box {
+  cursor: pointer;
   // padding: 3rem;
   // background: $dark-smooth;
   border: 3px solid rgba(0, 0, 0, 0.2);
@@ -918,6 +919,10 @@ p {
   background-color: $main-color;
 
   &:hover {
+    transform: scale(1.1);
+  }
+
+  &.is-scaled {
     transform: scale(1.1);
   }
 

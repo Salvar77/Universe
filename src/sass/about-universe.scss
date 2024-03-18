@@ -336,6 +336,20 @@ h3 {
   &:hover {
     transform: scale(1.07);
   }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .flex {
+    .name {
+      font-size: 2rem;
+    }
+
+    .position {
+      font-size: 1.4rem;
+    }
+  }
 }
 
 .testimonial:nth-child(1) {
@@ -390,6 +404,21 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+.testimonial {
+  p {
+    font-size: 1.6rem;
+  }
+  .flex {
+    .name {
+      font-size: 2.4rem;
+    }
+
+    .position {
+      font-size: 1.6rem;
+    }
   }
 }
 

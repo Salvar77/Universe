@@ -23,6 +23,11 @@ const handleNavItemsAnimation = () => {
   });
 };
 
+const handleBoxClick = (event) => {
+  const box = event.currentTarget;
+  box.classList.toggle("is-scaled"); // Zakładając, że masz taką klasę CSS do obracania diva
+};
+
 const handleNav = () => {
   nav.classList.toggle("nav--active");
 
@@ -154,3 +159,9 @@ galleryImages.style.transform = `translateX(-${(currentIndex + 1) * 100}vw)`;
 
 window.addEventListener("resize", updateImageSources);
 updateImageSources();
+
+const flexfunBoxes = document.querySelectorAll(".flexfun__box");
+flexfunBoxes.forEach((box) => {
+  box.addEventListener("click", handleBoxClick);
+  box.addEventListener("touchend", handleBoxClick);
+});
