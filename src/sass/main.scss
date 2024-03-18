@@ -95,13 +95,13 @@ button {
   right: 1rem;
   color: $secondary-color;
   // transform: translateY(-50%);
-  z-index: 500;
+  z-index: 5000;
 
   &-inner,
   &-inner::before,
   &-inner::after {
     background-color: $secondary-color;
-    z-index: 500;
+    z-index: 50000;
   }
 }
 
@@ -146,7 +146,6 @@ button {
   width: 100%;
   transform: translateX(100%);
   transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-  background-image: $secondary-color;
   background-color: $white-smooth;
   z-index: 1000;
 
@@ -155,7 +154,9 @@ button {
   }
 
   &__logo-text {
-    font-size: 6rem;
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    color: $white-smooth;
   }
 
   &__img {
@@ -332,7 +333,8 @@ button {
     font-size: 2rem;
     color: $white-smooth;
     padding: 2rem;
-    margin: 0 auto;
+    // margin: 0 auto;
+    text-align: center;
   }
   &__img {
     max-width: 100%;
@@ -709,6 +711,8 @@ button {
     }
 
     &__logo-text {
+      margin-left: -10rem;
+      font-size: 4.8rem;
       margin-bottom: 1rem;
       color: $white-smooth;
     }
@@ -743,22 +747,20 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-
     background-image: url("../../dist/img/universe-hero-1920.webp"),
       linear-gradient(
         to right bottom,
-        rgba(219, 27, 27, 0.8),
-        rgba(0, 0, 0, 0.783)
+        rgba(192, 192, 192, 0.8),
+        rgba(199, 163, 44, 0.783)
       );
-    background-size: cover, cover;
-
+    background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat, no-repeat;
+    background-repeat: no-repeat;
     z-index: -1;
   }
 
   .navbar__logo {
-    transform: scale(0.8);
+    transform: scale(0.4);
     top: 0;
     left: 0;
   }

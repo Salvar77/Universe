@@ -1,5 +1,17 @@
 @use "colors" as *;
 
+@mixin heroImages($bgImgMobile, $bgImgDesktop) {
+  background-image: $light-blue-gradient, url(#{$bgImgMobile});
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  object-fit: cover;
+
+  @media (min-width: 992px) {
+    background-image: $light-blue-gradient, url(#{$bgImgDesktop});
+  }
+}
+
 @mixin burgerBtn {
   position: absolute;
   right: 0;
