@@ -890,6 +890,18 @@ p {
   margin: 3rem auto;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3);
   background: $dark-smooth;
+  padding: 1rem;
+}
+
+.flexfun__boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: $dark-smooth;
+  gap: 0.4rem;
+  padding: 2rem;
+  // flex-wrap: wrap;
+  box-shadow: inset 0 0 0.5rem 0 $white-smooth, 0 0 0.5 $dark-smooth;
 }
 
 .flexfun__box {
@@ -899,8 +911,7 @@ p {
   position: relative; /* Dodajmy pozycję względną dla prawidłowego pozycjonowania obrazu */
   margin: 0.4rem 0.2rem;
   flex: 1 0 100%; // Box na małych ekranach zajmuje całą szerokość.
-  // max-width: 35rem; // Dodano maksymalną szerokość dla boxa.
-  // Reszta kodu
+  // padding: 1rem;
   min-height: 3rem;
   border-radius: 0.4rem;
   transition: 0.4s;
@@ -932,16 +943,6 @@ p {
 // 	object-fit: cover;
 // 	border-radius: 0.4rem;
 // }
-
-.flexfun__boxes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  // background-color: $dark-smooth;
-  gap: 0.4rem;
-  // flex-wrap: wrap;
-  box-shadow: inset 0 0 0.5rem 0 $white-smooth, 0 0 0.5 $dark-smooth;
-}
 
 .flexfun__header {
   font-size: 1rem;
@@ -1006,12 +1007,13 @@ p {
 
 @media (min-width: 992px) {
   .nav {
-    height: 3.6rem;
+    height: 5.6rem;
     align-items: center;
     justify-content: center;
     transform: none;
     left: 0;
     top: 0;
+
     background-color: $dark-smooth;
     // background-image: none;
     // background-color: $white-smooth;
@@ -1034,6 +1036,7 @@ p {
       margin-top: 0.8rem;
       font-size: 0.8rem;
       color: $white-smooth;
+      font-size: 1.6rem;
 
       &:hover::before,
       &:hover::after {

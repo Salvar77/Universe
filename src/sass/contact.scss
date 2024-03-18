@@ -279,7 +279,7 @@ main {
 
 @media (min-width: 992px) {
   .nav {
-    height: 3.6rem;
+    height: 5.6rem;
     align-items: center;
     justify-content: center;
     transform: none;
@@ -305,7 +305,7 @@ main {
     &__item {
       margin: 0 1rem;
       margin-top: 0.8rem;
-      font-size: 0.8rem;
+      font-size: 1.6rem;
       color: $white-smooth;
 
       &:hover::before,
