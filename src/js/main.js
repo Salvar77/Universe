@@ -8,6 +8,7 @@ const galleryImages = document.querySelector(".gallery-images");
 const images = document.querySelectorAll(".gallery-images img");
 const footerYear = document.querySelector(".footer__year");
 const cards = document.querySelectorAll(".card");
+const flexfunBoxes = document.querySelectorAll(".flexfun__box");
 
 let imageIndex = 0;
 let currentIndex = 1;
@@ -160,8 +161,11 @@ galleryImages.style.transform = `translateX(-${(currentIndex + 1) * 100}vw)`;
 window.addEventListener("resize", updateImageSources);
 updateImageSources();
 
-const flexfunBoxes = document.querySelectorAll(".flexfun__box");
 flexfunBoxes.forEach((box) => {
   box.addEventListener("click", handleBoxClick);
-  box.addEventListener("touchend", handleBoxClick);
+  // Zastąpienie touchend przez touchstart
+  box.addEventListener("touchstart", (event) => {
+    event.preventDefault(); // Zapobieganie potencjalnemu podwójnemu wywołaniu z click
+    handleBoxClick(event);
+  });
 });
